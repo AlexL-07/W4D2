@@ -1,29 +1,29 @@
-KNIGHT_DIRS = [[2,1], [1,2], [-2,-1], [-1,-2], [-2,1], [-1,2], [2,-1], [1,-2]]
-KING_DIRS = [[0,1], [0,-1], [1,0], [-1,0], [1,1], [-1,1], [1,-1],[-1,-1]]
+KNIGHT_DIFFS = [[2,1], [1,2], [-2,-1], [-1,-2], [-2,1], [-1,2], [2,-1], [1,-2]]
+KING_DIFFS = [[0,1], [0,-1], [1,0], [-1,0], [1,1], [-1,1], [1,-1],[-1,-1]]
 module Stepable
 
-    def knight_dirs
-        KNIGHT_DIRS
+    def knight_diffs
+        KNIGHT_DIFFS
     end
     
-    def king_dirs 
-        KING_DIRS
+    def king_diffs 
+        KING_DIFFS
     end
 
     def moves
         valid_moves = []
-        move_dirs.each do |dir|
-            dx, dy = dir
+        move_diffs.each do |diff|
+            dx, dy = diff
             row, col = self.pos
             valid moves << [dx + row, dy + col]
         end
 
-        valid_moves
+        return valid_moves.select! { |pos| board.valid_pos?(pos) }
     end
 
     private
 
-    def move_dirs
+    def move_diffs
         raise 'not implemented'
     end
 

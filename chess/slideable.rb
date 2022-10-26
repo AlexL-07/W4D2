@@ -38,7 +38,7 @@ module Slideable
             break unless @board.valid_pos?(pos)
             if @board.empty?(pos)
                 unblocked << pos
-            else 
+            else #if we're running into issues here maybe remove the color check from valid_pos?
                 unblocked << pos if board[pos].color != self.color
                 break
             end
