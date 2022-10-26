@@ -34,6 +34,10 @@ class Board
         self[start_pos] = nil
     end
 
+    def empty?(pos)
+        self[pos].nil? #self[pos].is_a? instance of nil piece?
+    end
+
     def valid_pos?(pos)
         row, col = pos
         if (row < 0 || row > 7) && (col < 0 || col > 7)
