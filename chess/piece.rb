@@ -1,3 +1,4 @@
+require_relative 'board.rb'
 class Piece
     attr_reader :color, :board
     attr_accessor :pos 
@@ -7,10 +8,10 @@ class Piece
         @pos = pos
     end
     
-    def valid_moves
-        # checks if king is in check or not 
-        # can't check yourself before you wreck yourself
-    end
+    # def valid_moves
+    #     # checks if king is in check or not 
+    #     # can't check yourself before you wreck yourself
+    # end
 
    
 

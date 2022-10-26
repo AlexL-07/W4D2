@@ -45,7 +45,6 @@ module Slideable
         end
         unblocked
 
-        end
     end 
 
 end

@@ -5,14 +5,34 @@ class Board
 
     def initialize
         @rows = Array.new(8) {Array.new(8)}
+        color = ""
         @rows.each_with_index do |row, i|
             if i == 0 || i == 1 || i == 6 || i == 7
                 row.each_with_index do |el, i2|
-                    row[i2] = Piece.new
+                    # row[i2] = Piece.new
+                    if i == 0 
+                        # color = "black"
+                        row[i2] = Rook.new("black", @rows, [i, i2]) if i2 == 0 || i2 == 7
+                        row[i2] = Knight.new("black", @rows, [i, i2]) if i2 == 1 || i2 == 6
+                        row[i2] = Bishop.new("black", @rows, [i, i2]) if i2 == 2 || i2 == 5
+                        row[i2] = Queen.new("black", @rows, [i, i2]) if i2 == 3 
+                        row[i2] = King.new("black", @rows, [i, i2]) if i2 == 4
+                    elsif i == 1
+                        row[i2] = Pawn.new("black", @rows, [i, i2])  
+                    elsif i == 7
+                        # color = "white"
+                        row[i2] = Rook.new("white", @rows, [i, i2]) if i2 == 0 || i2 == 7
+                        row[i2] = Knight.new("white", @rows, [i, i2]) if i2 == 1 || i2 == 6
+                        row[i2] = Bishop.new("white", @rows, [i, i2]) if i2 == 2 || i2 == 5
+                        row[i2] = Queen.new("white", @rows, [i, i2]) if i2 == 3 
+                        row[i2] = King.new("white", @rows, [i, i2]) if i2 == 4
+                    elsif i == 6
+                        row[i2] = Pawn.new("white", @rows, [i, i2])
+                    end
                 end
            else
                 row.each_with_index do |el, i2|
-                    row[i2] = nil 
+                    row[i2] = NullPiece.instance 
                 end
            end
         end
