@@ -1,7 +1,7 @@
 require_relative "piece.rb"
 require_relative "stepable.rb"
 class Pawn < Piece
-    attr_reader :symbol
+    # attr_reader :symbol
 
    
 
